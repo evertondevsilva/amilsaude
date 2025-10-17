@@ -155,5 +155,17 @@ $(document).ready(function () {
         $(".social-media-buttons a").eq(1).attr("href", cfg.footer.social.instagram);
         $(".social-media-buttons a").eq(2).attr("href", cfg.footer.social.facebook);
     });
+
+    var $btn = $('#whatsapp_floating');
+
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        $btn.css({
+            'display': 'flex',
+            'position': 'fixed',
+            'bottom': '40px',
+            'right': '20px',
+            'z-index': '9999'
+        });
+    }
 });
 
