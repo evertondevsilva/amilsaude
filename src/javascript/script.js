@@ -91,16 +91,20 @@ $(document).ready(function () {
                 const text = 'Olá! Gostaria de mais informações sobre os planos da Amil.';
                 const url = 'https://api.whatsapp.com/send?phone=' + cfg.home.whatsappNumber + '&text=' + encodeURIComponent(text);
                 if (!/Mobi|Android/i.test(navigator.userAgent)) {
-                    window.open(url, '_blank'); // Desktop
+                    window.open(url, '_blank');
                 } else {
-                    window.location.href = url; // Mobile
+                    window.location.href = url;
                 }
             });
         });
         $("#phone_button")
             .attr("href", `https://wa.me/${cfg.home.whatsappNumber}`)
-            .attr("target", "_blank") // 🔥 abre em nova aba
+            .attr("target", "_blank")
             .html(`<button class="btn-default"><i class="fa-brands fa-whatsapp"></i></button> ${cfg.home.whatsappText}`);
+
+        $("#whatsapp_floating")
+            .attr("href", `https://wa.me/${cfg.home.whatsappNumber}`)
+            .attr("target", "_blank")
 
         // 🔹 Menu (planos)
         $("#menu .section-title").text(cfg.menu.sectionTitle);

@@ -95,3 +95,40 @@ section {
 .hidden {
     display: none !important;
 }
+
+#whatsapp_floating {
+    position: fixed;
+    /* Fica fixo na tela */
+    bottom: 20px;
+    /* Distância do rodapé */
+    right: 20px;
+    /* Distância da borda direita */
+    z-index: 9999;
+    /* Fica acima de outros elementos */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Espaço entre ícone e texto */
+    padding: 10px 16px;
+    background-color: #25D366;
+    /* Verde WhatsApp */
+    color: white;
+    border-radius: 50px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Sombra */
+    text-decoration: none;
+    /* Remove sublinhado do link */
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#whatsapp_floating:hover {
+    background-color: #1ebe57;
+    /* Verde mais escuro ao passar mouse */
+}
+
+#whatsapp_floating i {
+    font-size: 20px;
+    /* Tamanho do ícone */
+}
