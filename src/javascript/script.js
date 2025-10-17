@@ -156,17 +156,6 @@ $(document).ready(function () {
         $(".social-media-buttons a").eq(2).attr("href", cfg.footer.social.facebook);
     });
 
-    $(document).ready(function () {
-        var $btn = $('#whatsapp_floating');
 
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-
-            $btn.css({
-                'padding': '10px',
-                'gap': '0'
-            });
-            $btn.find('span').hide();
-        }
-    });
 });
 
