@@ -78,7 +78,6 @@ $(document).ready(function () {
 
         for (const [key, value] of Object.entries(colors)) {
             document.documentElement.style.setProperty(`--color-${key}`, value);
-            console.log(`Set --color-${key} to ${value}`);
         }
 
         // 🔹 Home
@@ -86,10 +85,17 @@ $(document).ready(function () {
         $("#home .description").text(cfg.home.description);
         $("#home .bg-color-cta").html(`${cfg.home.ctaText} <i class="${cfg.home.ctaIcon}"></i>`);
         $("#banner img").attr("src", cfg.home.bannerImage);
-        $('#request_quote').on('click', function () {
-            const text = 'Olá! Gostaria de mais informações sobre os planos da Amil.';
-            const url = 'https://wa.me/' + cfg.home.whatsappNumber + '?text=' + encodeURIComponent(text);
-            window.open(url, '_blank');
+        $(document).ready(function () {
+            $('.request_quote').on('click', function () {
+                const tipo = $(this).data('tipo');
+                const text = 'Olá! Gostaria de mais informações sobre os planos da Amil.';
+                const url = 'https://api.whatsapp.com/send?phone=' + cfg.home.whatsappNumber + '&text=' + encodeURIComponent(text);
+                if (!/Mobi|Android/i.test(navigator.userAgent)) {
+                    window.open(url, '_blank'); // Desktop
+                } else {
+                    window.location.href = url; // Mobile
+                }
+            });
         });
         $("#phone_button")
             .attr("href", `https://wa.me/${cfg.home.whatsappNumber}`)
@@ -123,7 +129,7 @@ $(document).ready(function () {
         // 🔹 Depoimentos
         $("#testimonials .section-title").text(cfg.testimonials.title);
         $("#testimonials .section-subtitle").text(cfg.testimonials.subtitle);
-        $("#testimonial_chef").attr("src", cfg.testimonials.imageMain);
+        $("#testimonial").attr("src", cfg.testimonials.imageMain);
 
         const $feedbacks = $("#feedbacks").empty();
         $.each(cfg.testimonials.feedbacks, function (_, fb) {
