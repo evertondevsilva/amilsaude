@@ -156,16 +156,17 @@ $(document).ready(function () {
         $(".social-media-buttons a").eq(2).attr("href", cfg.footer.social.facebook);
     });
 
-    var $btn = $('#whatsapp_floating');
+    $(document).ready(function () {
+        var $btn = $('#whatsapp_floating');
 
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-        $btn.css({
-            'display': 'flex',
-            'position': 'fixed',
-            'bottom': '40px',
-            'right': '20px',
-            'z-index': '9999'
-        });
-    }
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+
+            $btn.css({
+                'padding': '10px',
+                'gap': '0'
+            });
+            $btn.find('span').hide();
+        }
+    });
 });
 
